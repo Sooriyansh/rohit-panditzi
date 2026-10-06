@@ -1,0 +1,1 @@
+export const business = { name: "श्री पारदेश्वर महादेव मंदिर", address: "राम घाट मार्ग, उज्जैन, मध्य प्रदेश – 456006", phone: "93295 00668", phoneDigits: "919329500668", tel: "+919329500668", email: "shivjyotishkendra@gmail.com", city: "उज्जैन", region: "मध्य प्रदेश", postalCode: "456006" } as const;
