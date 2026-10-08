@@ -1,2 +1,29 @@
+"use client";
+
 import Link from "next/link";
-export default function NotFound(){return <main className="section"><div className="container"><h1>यह पृष्ठ नहीं मिला</h1><p>लिंक जांचें या मुख्य पृष्ठ पर लौटें।</p><Link className="button" href="/">होम पर जाएँ</Link></div></main>}
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+
+export default function NotFound() {
+  const router = useRouter();
+
+  useEffect(() => {
+    const timeout = window.setTimeout(() => {
+      router.replace("/");
+    }, 2200);
+
+    return () => window.clearTimeout(timeout);
+  }, [router]);
+
+  return (
+    <main className="section">
+      <div className="container prose">
+        <h1>यह पृष्ठ नहीं मिला</h1>
+        <p>यह लिंक उपलब्ध नहीं है। आपको मुख्य पृष्ठ पर भेजा जा रहा है।</p>
+        <Link className="button" href="/">
+          होम पर जाएँ
+        </Link>
+      </div>
+    </main>
+  );
+}

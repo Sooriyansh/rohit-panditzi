@@ -28,11 +28,13 @@ export default function BookingForm() {
   async function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
+    const form = e.currentTarget;
+
     setBusy(true);
     setStatus("");
 
     const body = Object.fromEntries(
-      new FormData(e.currentTarget).entries(),
+      new FormData(form).entries(),
     );
 
     try {
@@ -56,7 +58,7 @@ export default function BookingForm() {
         "आपका अनुरोध प्राप्त हुआ। विवरण की पुष्टि के लिए आपसे संपर्क किया जाएगा।",
       );
 
-      e.currentTarget.reset();
+      form.reset();
     } catch (err) {
       setStatus(
         err instanceof Error
